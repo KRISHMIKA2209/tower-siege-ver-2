@@ -10,8 +10,20 @@ class Block{
       World.add(world, this.body);
     }
     display(){
+      if(this.body.speed<3){
       var pos= this.body.position;
+      push();
       rectMode(CENTER);
       rect(pos.x,pos.y,this.width, this.height);
+      pop();
+      }
+      else{
+        World.remove(world,this.body);
+        push();
+        this.Visibility = this.Visibility - 5;
+        tint(255,this.Visibility)
+        rect(999,999,this.width,this.height);
+        pop();
+      }
     }
 }
